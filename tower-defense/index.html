@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Defense</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Game Area -->
+        <div class="game-wrapper">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+            <div id="game-over-screen" class="screen hidden">
+                <h1>SYSTEM BREACHED</h1>
+                <p>MALWARE UPLOAD COMPLETE</p>
+                <button onclick="location.reload()">RE-INITIALIZE_SYSTEM</button>
+            </div>
+
+            <div id="start-screen" class="screen">
+                <h1>CYBER DEFENSE</h1>
+                <p>Protect the Mainframe from Viral Intrusion</p>
+                <button id="start-btn">INITIATE_PROTOCOL</button>
+            </div>
+        </div>
+
+        <!-- Sidebar / HUD -->
+        <div class="hud-panel">
+            <div class="stats-box">
+                <div class="stat">
+                    <span class="label">INTEGRITY</span>
+                    <span class="value" id="lives">100</span>
+                </div>
+                <div class="stat">
+                    <span class="label">CREDITS</span>
+                    <span class="value" id="money">100</span>
+                </div>
+                <div class="stat">
+                    <span class="label">WAVE</span>
+                    <span class="value" id="wave">1</span>
+                </div>
+            </div>
+
+            <div class="tower-selection">
+                <h3>DEFENSE SYSTEMS</h3>
+                <div class="tower-btn" onclick="selectTower(0)" data-cost="50">
+                    <div class="icon blaster"></div>
+                    <div class="info">
+                        <span class="name">BLASTER</span>
+                        <span class="cost">50 CR</span>
+                    </div>
+                </div>
+                <div class="tower-btn" onclick="selectTower(1)" data-cost="150">
+                    <div class="icon sniper"></div>
+                    <div class="info">
+                        <span class="name">SNIPER</span>
+                        <span class="cost">150 CR</span>
+                    </div>
+                </div>
+                <div class="tower-btn cursor-pointer" onclick="selectTower(2)" data-cost="300">
+                    <div class="icon rapid"></div>
+                    <div class="info">
+                        <span class="name">RAPID</span>
+                        <span class="cost">300 CR</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tower Upgrade/Info Panel (Hidden by default) -->
+            <div id="tower-control-panel" class="tower-selection hidden" style="border-left-color: var(--accent-red);">
+                <h3>TOWER CONTROL</h3>
+                <div style="margin-bottom: 15px;">
+                    <div id="sel-tower-name" style="font-weight: bold; font-size: 1.2rem; color: #fff;">BLASTER</div>
+                    <div style="color: #888; font-size: 0.9rem;">Level <span id="sel-tower-level">1</span></div>
+                </div>
+
+                <div class="stat-row-small">
+                    <span>Range:</span> <span id="sel-tower-range" style="color:var(--accent-blue)">150</span>
+                </div>
+                <div class="stat-row-small">
+                    <span>Damage:</span> <span id="sel-tower-dmg" style="color:var(--accent-red)">20</span>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button id="btn-upgrade" onclick="upgradeSelectedTower()"
+                        style="flex:1; font-size: 0.9rem; padding: 10px;">UPGRADE (<span
+                            id="upgrade-cost">100</span>)</button>
+                    <button id="btn-sell" onclick="sellSelectedTower()"
+                        style="flex:1; font-size: 0.9rem; padding: 10px; background: #331111; border: 1px solid var(--accent-red); color:var(--accent-red);">SELL
+                        (<span id="sell-cost">25</span>)</button>
+                </div>
+                <button onclick="deselectTower()"
+                    style="width: 100%; margin-top: 10px; padding: 5px; background: transparent; border: 1px solid #444; color: #888; font-size: 0.8rem;">CANCEL
+                    SELECTION</button>
+            </div>
+
+            <div class="info-log" id="log-box">
+                <div class="log-entry">> System Ready...</div>
+            </div>
+
+            <button id="next-wave-btn">START WAVE</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

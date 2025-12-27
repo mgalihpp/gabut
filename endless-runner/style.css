@@ -1,0 +1,115 @@
+:root {
+    --bg-color: #050510;
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff41;
+    --text-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+    user-select: none;
+}
+
+body {
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+    border: 2px solid #333;
+    background: #000;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let clicks pass through to canvas/buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-board {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.screen {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 40px;
+    border: 1px solid var(--neon-blue);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    pointer-events: auto;
+    /* Re-enable clicks for buttons */
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.glow-text {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--neon-blue);
+    text-shadow: 0 0 20px var(--neon-blue);
+    letter-spacing: 4px;
+}
+
+.glow-text.red {
+    color: var(--neon-pink);
+    text-shadow: 0 0 20px var(--neon-pink);
+}
+
+p {
+    color: #ccc;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+button {
+    background: transparent;
+    color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+button:hover {
+    background: var(--neon-green);
+    color: #000;
+    box-shadow: 0 0 30px var(--neon-green);
+}

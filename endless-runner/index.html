@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Runner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="ui-layer">
+            <div class="score-board">SCORE: <span id="score">0</span></div>
+            <div id="start-screen" class="screen">
+                <h1 class="glow-text">NEON RUNNER</h1>
+                <p>Press [SPACE] or Tap to Jump</p>
+                <button id="start-btn">INITIATE_RUN</button>
+            </div>
+            <div id="game-over-screen" class="screen hidden">
+                <h1 class="glow-text red">CRITICAL ERROR</h1>
+                <p>Course Failed</p>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <button id="restart-btn">RETRY_CONNECTION</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
