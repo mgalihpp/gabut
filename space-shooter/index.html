@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Fury - Space Shooter</title>
+    <meta name="description" content="An epic cyberpunk space shooter game with stunning neon visuals">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Background Stars Layer -->
+        <div id="stars-layer"></div>
+        
+        <!-- Main Canvas -->
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- HUD Overlay -->
+        <div id="hud">
+            <div id="hud-left">
+                <div id="score-container">
+                    <span class="hud-label">SCORE</span>
+                    <span id="score">0</span>
+                </div>
+                <div id="combo-container">
+                    <span class="hud-label">COMBO</span>
+                    <span id="combo">x1</span>
+                </div>
+            </div>
+            <div id="hud-center">
+                <div id="wave-indicator">
+                    <span>WAVE</span>
+                    <span id="wave-number">1</span>
+                </div>
+            </div>
+            <div id="hud-right">
+                <div id="health-container">
+                    <span class="hud-label">SHIELD</span>
+                    <div id="health-bar">
+                        <div id="health-fill"></div>
+                    </div>
+                </div>
+                <div id="power-container">
+                    <span class="hud-label">POWER</span>
+                    <div id="power-icons"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Start Screen -->
+        <div id="start-screen" class="overlay">
+            <div class="overlay-content">
+                <h1 class="game-title">
+                    <span class="title-neon">NEON</span>
+                    <span class="title-fury">FURY</span>
+                </h1>
+                <p class="subtitle">SPACE SHOOTER</p>
+                <div class="start-instructions">
+                    <div class="control-hint">
+                        <span class="key">W A S D</span> or <span class="key">↑ ↓ ← →</span> Move
+                    </div>
+                    <div class="control-hint">
+                        <span class="key">SPACE</span> Fire
+                    </div>
+                    <div class="control-hint">
+                        <span class="key">SHIFT</span> Special Attack
+                    </div>
+                </div>
+                <button id="start-btn" class="neon-btn">
+                    <span>START MISSION</span>
+                </button>
+                <p class="footer-text">Destroy all enemies • Collect power-ups • Survive</p>
+            </div>
+        </div>
+        
+        <!-- Pause Screen -->
+        <div id="pause-screen" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 class="pause-title">PAUSED</h2>
+                <button id="resume-btn" class="neon-btn">
+                    <span>RESUME</span>
+                </button>
+                <button id="quit-btn" class="neon-btn secondary">
+                    <span>QUIT TO MENU</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 class="gameover-title">MISSION FAILED</h2>
+                <div id="final-stats">
+                    <div class="stat-row">
+                        <span>Final Score</span>
+                        <span id="final-score">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Enemies Destroyed</span>
+                        <span id="enemies-destroyed">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Highest Wave</span>
+                        <span id="highest-wave">1</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Best Combo</span>
+                        <span id="best-combo">x1</span>
+                    </div>
+                </div>
+                <div id="highscore-display" class="hidden">
+                    <span class="new-highscore">🏆 NEW HIGH SCORE! 🏆</span>
+                </div>
+                <button id="restart-btn" class="neon-btn">
+                    <span>TRY AGAIN</span>
+                </button>
+                <button id="menu-btn" class="neon-btn secondary">
+                    <span>MAIN MENU</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
